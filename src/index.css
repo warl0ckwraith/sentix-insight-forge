@@ -8,46 +8,46 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 25% 7%;
+    --background: 230 25% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 220 25% 9%;
+    --card: 230 25% 8%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 220 25% 9%;
+    --popover: 230 25% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 0 84% 60%;
+    --primary: 20 80% 55%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 217 32% 17%;
+    --secondary: 220 30% 12%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 32% 17%;
+    --muted: 220 30% 12%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 212 100% 47%;
+    --accent: 20 80% 55%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 32% 17%;
-    --input: 217 32% 17%;
-    --ring: 0 84% 60%;
+    --border: 220 30% 12%;
+    --input: 220 30% 12%;
+    --ring: 20 80% 55%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Sentix AI Brand Colors */
-    --cyber-red: 0 84% 60%;
+    /* N8N-inspired Brand Colors */
+    --n8n-orange: 20 80% 55%;
+    --n8n-purple: 280 60% 45%;
     --cyber-blue: 212 100% 47%;
-    --cyber-purple: 270 95% 75%;
     --terminal-green: 120 100% 50%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--cyber-blue)), hsl(var(--cyber-red)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(217 32% 12%));
-    --gradient-cyber: linear-gradient(90deg, hsl(var(--cyber-red)), hsl(var(--cyber-purple)), hsl(var(--cyber-blue)));
+    --gradient-hero: linear-gradient(135deg, hsl(230 25% 6%), hsl(280 60% 15%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(220 30% 10%));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--n8n-orange)), hsl(var(--n8n-purple)));
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

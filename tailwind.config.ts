@@ -62,17 +62,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				n8n: {
+					orange: 'hsl(var(--n8n-orange))',
+					purple: 'hsl(var(--n8n-purple))'
+				},
 				cyber: {
-					red: 'hsl(var(--cyber-red))',
 					blue: 'hsl(var(--cyber-blue))',
-					purple: 'hsl(var(--cyber-purple))',
 					green: 'hsl(var(--terminal-green))'
 				}
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)',
-				'gradient-cyber': 'var(--gradient-cyber)'
+				'gradient-accent': 'var(--gradient-accent)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

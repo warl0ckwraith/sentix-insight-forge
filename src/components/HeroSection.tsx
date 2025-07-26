@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { 
   Shield, 
@@ -47,7 +47,7 @@ export const HeroSection = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Automate Network
             <br />
-            <span className="bg-gradient-to-r from-cyber-purple to-cyber-blue bg-clip-text text-transparent">
+            <span className="bg-gradient-accent bg-clip-text text-transparent">
               Penetration Testing
             </span>
           </h1>
@@ -58,39 +58,51 @@ export const HeroSection = () => {
           </p>
 
           {/* AI Workflow Creator */}
-          <Card className="max-w-3xl mx-auto p-8 bg-background/10 backdrop-blur-md border-white/20">
+          <Card className="max-w-4xl mx-auto p-8 bg-card/80 backdrop-blur-md border-border">
+            <div className="mb-6">
+              <h3 className="text-xl font-semibold text-foreground mb-2">Pentesting Workflow Builder</h3>
+              <p className="text-muted-foreground">Describe your pentesting requirements, scope, and objectives. Our AI will generate a comprehensive workflow for you.</p>
+            </div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="relative">
-                <Input
+                <Textarea
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  placeholder="Describe your pentesting workflow... e.g., 'Create a comprehensive network scan and vulnerability assessment for web applications'"
-                  className="h-16 text-lg bg-background/50 border-white/30 text-white placeholder:text-white/60 pr-16"
+                  placeholder="Enter your pentesting details:&#10;&#10;• Target scope (IP ranges, domains, applications)&#10;• Test type (Black box, White box, Gray box)&#10;• Compliance requirements (PCI DSS, HIPAA, SOX)&#10;• Specific vulnerabilities to focus on&#10;• Timeline and reporting requirements&#10;• Any exclusions or special considerations&#10;&#10;Example: 'Conduct a comprehensive web application security assessment for an e-commerce platform. Test all user-facing components, API endpoints, and admin panels. Focus on OWASP Top 10 vulnerabilities, SQL injection, XSS, and authentication bypasses. PCI DSS compliance required.'"
+                  className="min-h-[200px] text-base bg-background/60 border-border text-foreground placeholder:text-muted-foreground resize-none p-4"
                 />
                 <Button
                   type="submit"
                   size="sm"
-                  className="absolute right-2 top-2 h-12 w-12 p-0"
+                  className="absolute right-3 bottom-3 bg-primary hover:bg-primary/90"
                   disabled={!prompt.trim()}
                 >
-                  <Send className="h-5 w-5" />
+                  <Send className="h-4 w-4 mr-2" />
+                  Generate Workflow
                 </Button>
               </div>
               
               <div className="flex items-center justify-between">
-                <Button
-                  type="button"
-                  variant={isPublic ? "default" : "secondary"}
-                  size="sm"
-                  onClick={() => setIsPublic(!isPublic)}
-                  className="bg-background/20 hover:bg-background/30 border-white/20"
-                >
-                  {isPublic ? <Globe className="h-4 w-4 mr-2" /> : <Lock className="h-4 w-4 mr-2" />}
-                  {isPublic ? "Public" : "Private"}
-                </Button>
+                <div className="flex items-center gap-4">
+                  <Button
+                    type="button"
+                    variant={isPublic ? "default" : "secondary"}
+                    size="sm"
+                    onClick={() => setIsPublic(!isPublic)}
+                    className="bg-secondary hover:bg-secondary/80"
+                  >
+                    {isPublic ? <Globe className="h-4 w-4 mr-2" /> : <Lock className="h-4 w-4 mr-2" />}
+                    {isPublic ? "Public Workflow" : "Private Workflow"}
+                  </Button>
+                  
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <AlertTriangle className="h-4 w-4" />
+                    <span>Enterprise-grade security analysis</span>
+                  </div>
+                </div>
                 
-                <div className="text-sm text-white/60">
-                  Powered by AI-driven security analysis
+                <div className="text-sm text-muted-foreground">
+                  Powered by Advanced LLM Technology
                 </div>
               </div>
             </form>
@@ -104,33 +116,33 @@ export const HeroSection = () => {
               icon: Search,
               title: "Reconnaissance",
               description: "Automated discovery and enumeration",
-              color: "from-cyber-blue to-cyber-purple"
+              color: "from-n8n-orange to-n8n-purple"
             },
             {
               icon: Target,
               title: "Vulnerability Scanning",
               description: "AI-powered vulnerability detection",
-              color: "from-cyber-red to-cyber-purple"
+              color: "from-n8n-purple to-cyber-blue"
             },
             {
               icon: Activity,
               title: "Exploitation",
               description: "Intelligent exploit automation",
-              color: "from-cyber-purple to-cyber-blue"
+              color: "from-cyber-blue to-n8n-orange"
             },
             {
               icon: FileText,
               title: "Reporting",
               description: "LLM-generated security reports",
-              color: "from-cyber-blue to-cyber-red"
+              color: "from-n8n-orange to-n8n-purple"
             }
           ].map((category, index) => (
-            <Card key={index} className="p-6 bg-background/10 backdrop-blur-sm border-white/20 hover:bg-background/20 transition-all duration-300 group cursor-pointer">
+            <Card key={index} className="p-6 bg-card/60 backdrop-blur-sm border-border hover:bg-card/80 transition-all duration-300 group cursor-pointer">
               <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                 <category.icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">{category.title}</h3>
-              <p className="text-white/70 text-sm">{category.description}</p>
+              <h3 className="text-lg font-semibold text-foreground mb-2">{category.title}</h3>
+              <p className="text-muted-foreground text-sm">{category.description}</p>
             </Card>
           ))}
         </div>
@@ -142,11 +154,11 @@ export const HeroSection = () => {
             { number: "99.9%", label: "Accuracy Rate" },
             { number: "10x", label: "Faster Than Manual Testing" }
           ].map((stat, index) => (
-            <div key={index} className="text-white">
-              <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-cyber bg-clip-text text-transparent">
+            <div key={index}>
+              <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-accent bg-clip-text text-transparent">
                 {stat.number}
               </div>
-              <p className="text-white/70">{stat.label}</p>
+              <p className="text-muted-foreground">{stat.label}</p>
             </div>
           ))}
         </div>
