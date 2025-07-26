@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { 
   Shield, 
   Network, 
@@ -113,75 +114,80 @@ export const WorkflowShowcase = () => {
         {/* Workflow Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {workflows.map((workflow) => (
-            <Card key={workflow.id} className="group overflow-hidden bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
-              {/* Preview Image */}
-              <div className="aspect-video bg-muted relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/20 to-cyber-red/20 flex items-center justify-center">
-                  <workflow.icon className="h-16 w-16 text-primary/60" />
-                </div>
-                <div className="absolute top-3 left-3">
-                  <Badge variant="secondary" className="text-xs bg-background/80 backdrop-blur-sm">
-                    {workflow.category}
-                  </Badge>
-                </div>
-                <div className="absolute top-3 right-3">
-                  <Badge className={`text-xs border ${getDifficultyColor(workflow.difficulty)}`}>
-                    {workflow.difficulty}
-                  </Badge>
-                </div>
-                <Button
-                  size="sm"
-                  className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity"
-                >
-                  <Play className="h-4 w-4 mr-1" />
-                  Run
-                </Button>
-              </div>
-
-              {/* Content */}
-              <div className="p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-6 h-6 rounded-full bg-gradient-hero flex items-center justify-center">
-                    <Users className="h-3 w-3 text-white" />
+            <Link 
+              key={workflow.id} 
+              to={`/workflows/${workflow.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
+            >
+              <Card className="group overflow-hidden bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 cursor-pointer">
+                {/* Preview Image */}
+                <div className="aspect-video bg-muted relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyber-blue/20 to-cyber-red/20 flex items-center justify-center">
+                    <workflow.icon className="h-16 w-16 text-primary/60" />
                   </div>
-                  <span className="text-sm text-muted-foreground">{workflow.author}</span>
-                </div>
-
-                <h3 className="font-semibold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                  {workflow.title}
-                </h3>
-
-                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                  {workflow.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {workflow.tags.slice(0, 2).map((tag, index) => (
-                    <Badge key={index} variant="outline" className="text-xs">
-                      {tag}
+                  <div className="absolute top-3 left-3">
+                    <Badge variant="secondary" className="text-xs bg-background/80 backdrop-blur-sm">
+                      {workflow.category}
                     </Badge>
-                  ))}
-                  {workflow.tags.length > 2 && (
-                    <Badge variant="outline" className="text-xs">
-                      +{workflow.tags.length - 2}
-                    </Badge>
-                  )}
-                </div>
-
-                {/* Footer */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Star className="h-4 w-4" />
-                    <span>{workflow.remixes} runs</span>
                   </div>
-                  <Button size="sm" variant="ghost" className="text-xs">
-                    <Eye className="h-3 w-3 mr-1" />
-                    Preview
+                  <div className="absolute top-3 right-3">
+                    <Badge className={`text-xs border ${getDifficultyColor(workflow.difficulty)}`}>
+                      {workflow.difficulty}
+                    </Badge>
+                  </div>
+                  <Button
+                    size="sm"
+                    className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <Play className="h-4 w-4 mr-1" />
+                    Run
                   </Button>
                 </div>
-              </div>
-            </Card>
+
+                {/* Content */}
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-6 h-6 rounded-full bg-gradient-hero flex items-center justify-center">
+                      <Users className="h-3 w-3 text-white" />
+                    </div>
+                    <span className="text-sm text-muted-foreground">{workflow.author}</span>
+                  </div>
+
+                  <h3 className="font-semibold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                    {workflow.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                    {workflow.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {workflow.tags.slice(0, 2).map((tag, index) => (
+                      <Badge key={index} variant="outline" className="text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                    {workflow.tags.length > 2 && (
+                      <Badge variant="outline" className="text-xs">
+                        +{workflow.tags.length - 2}
+                      </Badge>
+                    )}
+                  </div>
+
+                  {/* Footer */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Star className="h-4 w-4" />
+                      <span>{workflow.remixes} runs</span>
+                    </div>
+                    <Button size="sm" variant="ghost" className="text-xs">
+                      <Eye className="h-3 w-3 mr-1" />
+                      Preview
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            </Link>
           ))}
         </div>
 

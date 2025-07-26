@@ -26,18 +26,6 @@ export const Navbar = () => {
           <a href="#platform" className="text-foreground hover:text-primary transition-colors">
             Platform
           </a>
-          <a href="#workflows" className="text-foreground hover:text-primary transition-colors">
-            Workflows
-          </a>
-          <a href="#pricing" className="text-foreground hover:text-primary transition-colors">
-            Pricing
-          </a>
-          <a href="#docs" className="text-foreground hover:text-primary transition-colors">
-            Documentation
-          </a>
-          <a href="#community" className="text-foreground hover:text-primary transition-colors">
-            Community
-          </a>
         </div>
 
         {/* Auth Buttons */}
@@ -45,10 +33,6 @@ export const Navbar = () => {
           <Button variant="ghost" size="sm">
             <LogIn className="h-4 w-4 mr-2" />
             Sign In
-          </Button>
-          <Button size="sm" className="bg-primary hover:bg-primary/90">
-            <UserPlus className="h-4 w-4 mr-2" />
-            Get Started
           </Button>
         </div>
 
@@ -68,13 +52,8 @@ export const Navbar = () => {
         <div className="md:hidden mt-4 pb-4 border-t border-border">
           <div className="flex flex-col space-y-4 pt-4">
             <a href="#platform" className="text-foreground hover:text-primary">Platform</a>
-            <a href="#workflows" className="text-foreground hover:text-primary">Workflows</a>
-            <a href="#pricing" className="text-foreground hover:text-primary">Pricing</a>
-            <a href="#docs" className="text-foreground hover:text-primary">Documentation</a>
-            <a href="#community" className="text-foreground hover:text-primary">Community</a>
             <div className="flex space-x-4 pt-4">
               <Button variant="ghost" size="sm">Sign In</Button>
-              <Button size="sm">Get Started</Button>
             </div>
           </div>
         </div>

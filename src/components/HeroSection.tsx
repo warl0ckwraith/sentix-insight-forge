@@ -68,7 +68,7 @@ export const HeroSection = () => {
                 <Textarea
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  placeholder="Enter your pentesting details:&#10;&#10;• Target scope (IP ranges, domains, applications)&#10;• Test type (Black box, White box, Gray box)&#10;• Compliance requirements (PCI DSS, HIPAA, SOX)&#10;• Specific vulnerabilities to focus on&#10;• Timeline and reporting requirements&#10;• Any exclusions or special considerations&#10;&#10;Example: 'Conduct a comprehensive web application security assessment for an e-commerce platform. Test all user-facing components, API endpoints, and admin panels. Focus on OWASP Top 10 vulnerabilities, SQL injection, XSS, and authentication bypasses. PCI DSS compliance required.'"
+                  placeholder="Details"
                   className="min-h-[200px] text-base bg-background/60 border-border text-foreground placeholder:text-muted-foreground resize-none p-4"
                 />
                 <Button
@@ -102,7 +102,7 @@ export const HeroSection = () => {
                 </div>
                 
                 <div className="text-sm text-muted-foreground">
-                  Powered by Advanced LLM Technology
+                  Powered by n8n & LLM
                 </div>
               </div>
             </form>
